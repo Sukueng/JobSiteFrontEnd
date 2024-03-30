@@ -1,0 +1,79 @@
+@media (max-width: 767px) {
+  .container.text-center {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container.text-center>* {
+    margin-bottom: 10px;
+    /* Adjust spacing between elements */
+  }
+}
+
+.formcontainer {
+
+  border: 1px solid black;
+  width: 50%;
+  padding: 2%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+
+@media (max-width :768px) {
+  .formcontainer {
+    width: 80%;
+  }
+}
+
+/* ///////////////////////////Company dashboard */
+
+.underline{
+  width:110px;
+  height: 3px;
+  background-color: darkmagenta;
+  border-radius: 10px;
+}
+
+
+@media (max-width :768px) {
+
+
+  .addbutton {
+    font-size: 10px;
+  }
+
+  .underline{
+    width: 80px;
+  }
+}
+
+/* Home job cards */
+.job-cards :hover{
+  transform: scale(1.01);
+}
+
+/* style={{  maxWidth: '40%', padding: '1.2%', borderRadius: '10px', margin: 'auto',border:'1px solid black'}} */
+
+.jobcontainer{
+  max-width: 60%;
+  padding: 1.2%;
+  margin: auto;
+ 
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px black;
+}
+
+
+@media (max-width :768px) {
+  .jobcontainer{
+    max-width: 80%;
+  }
+}
+
+
+/* @media (min-width: 506px) and (max-width: 768px) {
+  .formcontainer {
+    width: 90%; 
+  }
+} */
