@@ -24,38 +24,37 @@ function Header() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/" className='me-5' style={{ fontWeight: 'bold', fontSize: '2rem' }}>Job <span className='text-primary'>Portal</span></Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" className='me-5' style={{ fontWeight: 'bold', fontSize: '2rem' }}>Job <span className='text-primary'>Portal</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/" style={{ fontWeight: 'bold',fontSize:'1.2rem',color: isActive('/') }}>Home</Nav.Link>
-            
+            <Nav.Link as={Link} to="/" style={{ fontWeight: 'bold', fontSize: '1.2rem', color: isActive('/') }}>Home</Nav.Link>
           </Nav>
           <Nav>
             <div className='d-sm-flex justify-content-between'>
-           
-            <Nav.Link href={localStorage.getItem("uname") != null ? "/" : "/userlogin"} style={{ fontWeight: 'bold',fontSize:'1.2rem',color: isActive('/userlogin') }}>Get Job</Nav.Link>
-
-              <Nav.Link eventKey={2} href={localStorage.getItem("Companyname") != null ? "/companyDashboard" : "/company"} style={{ fontWeight: 'bold',fontSize:'1.2rem' ,color: isActive('/company')}}>Post a Job</Nav.Link>
+              <Nav.Link as={Link} to={localStorage.getItem("uname") != null ? "/" : "/userlogin"} style={{ fontWeight: 'bold', fontSize: '1.2rem', color: isActive('/userlogin') }}>Get Job</Nav.Link>
+              <Nav.Link as={Link} to={localStorage.getItem("Companyname") != null ? "/companyDashboard" : "/company"} style={{ fontWeight: 'bold', fontSize: '1.2rem', color: isActive('/company') }}>Post a Job</Nav.Link>
             </div>
           </Nav>
-
-          {localStorage.getItem("Companyname") != null ? <NavDropdown className='ms-lg-2' style={{ color: 'orange', fontWeight: 'bold' }} title={localStorage.getItem("Companyname")} id="navbarScrollingDropdown">
-            <NavDropdown.Item className='text-center' href="#action3" onClick={() => clearlocal()}>Logout</NavDropdown.Item>
-            <NavDropdown.Item className='text-center' href="/editprofile" >Edit</NavDropdown.Item>
-
-          </NavDropdown> : ""}
-
-          {localStorage.getItem("uname") != null ? <NavDropdown className='ms-lg-2' style={{ color: 'orange', fontWeight: 'bold' }} title={localStorage.getItem("uname")} id="navbarScrollingDropdown">
-            <NavDropdown.Item className='text-center' href="#action3" onClick={() => clearlocal()}>Logout</NavDropdown.Item>
-            <NavDropdown.Item className='text-center'  href="/editprofile">Edit</NavDropdown.Item>
-          </NavDropdown> : ""}
-
-
+          {localStorage.getItem("Companyname") != null ? 
+            <NavDropdown className='ms-lg-2' style={{ color: 'orange', fontWeight: 'bold' }} title={localStorage.getItem("Companyname")} id="navbarScrollingDropdown">
+              <NavDropdown.Item as={Link} to="/" className='text-center' onClick={() => clearlocal()}>Logout</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/editprofile" className='text-center'>Edit</NavDropdown.Item>
+            </NavDropdown> 
+            : ""
+          }
+          {localStorage.getItem("uname") != null ? 
+            <NavDropdown className='ms-lg-2' style={{ color: 'orange', fontWeight: 'bold' }} title={localStorage.getItem("uname")} id="navbarScrollingDropdown">
+              <NavDropdown.Item as={Link} to="/" className='text-center' onClick={() => clearlocal()}>Logout</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/editprofile" className='text-center'>Edit</NavDropdown.Item>
+            </NavDropdown> 
+            : ""
+          }
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 }
+
 
 export default Header;
